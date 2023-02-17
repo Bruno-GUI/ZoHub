@@ -45,7 +45,10 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
         end
     end)
 
-    MiscsSection:NewKeybind("Toggle UI off", "...", Enum.KeyCode.LeftShift, function()
+    local Others = Window:NewTab("Others")
+    local OthersSection = Others:NewSection("Others")
+
+    OthersSection:NewKeybind("Toggle UI off", "...", Enum.KeyCode.LeftShift, function()
         Library:ToggleUI()
     end)
 
