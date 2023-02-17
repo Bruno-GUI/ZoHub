@@ -30,8 +30,8 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             end
         end)
 
-    local Misc = Window:NewTab("Misc")     
-    local MiscSection = Misc:NewSection("Misc")
+    local Miscs = Window:NewTab("Misc")     
+    local MiscsSection = Miscs:NewSection("Misc")
 
     local function codeInput(code)
         game:GetService("ReplicatedStorage").Events.CheckCode:InvokeServer(code)
@@ -39,10 +39,15 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
     
     --muda teu misc button
     local miscCodes = {"*%@?", "bingchillin", "65M!", "300kFAVE", "festiveTime", "snowsnosns", "60M!", "DD2", "winteriscoming", "candy", "corn", "soonTM", "tags?!", "redYELLOWred", "spamspam", "settingsnoway", "ty4100k", "Ascensions!", "gaming", "ascend?", "killALLpls", "zoooom", "worldWIDE", "SUPERCHAT", "tahc labolg", "thatswild", "token?", "wal", "FONUFO", "O_o", "ZaP", "speeeed", "daily", "spooky", "bugcatcher", "69"} -- bota o resto dos codes
-    MiscSection:NewButton("Redeem All Codes", "....", function()
+    MiscsSection:NewButton("Redeem All Codes", "....", function()
         for _, code in ipairs(miscCodes) do
             codeInput(code)
         end
     end)
 
-    
+    MiscsSection:NewKeybind("Toggle UI off", "...", Enum.KeyCode.LeftShift, function()
+        Library:ToggleUI()
+    end)
+
+
+
