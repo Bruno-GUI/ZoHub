@@ -59,8 +59,8 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             end)   
         end)
 
-        local Others = Window:NewTab("Others")
-        local OthersSection = Others:NewSection("Others")
+    local Others = Window:NewTab("Others")
+    local OthersSection = Others:NewSection("Others")
 
         OthersSection:NewButton("Infinite Yield", "FE CMDS", function()
             loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
@@ -84,6 +84,25 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             Library:ToggleUI()
         end)
 
+            local Teleports = { 
+            Blue = CFrame.new(374.989014, 14.1000004, -19.5510006, -0.998631716, 0, 0.0522932447, 0, 1, 0, -0.0522932447, 0, -0.998631716),
+            Green = CFrame.new(319.837006, 29.1000004, -179.973007, -0.961250067, 0, -0.275678426, 0, 1, 0, 0.275678426, 0, -0.961250067),
+            Orange = CFrame.new(-62.6419983, 31.1000004, 350.268005, -0.0871315002, 0, 0.996196866, 0, 1, 0, -0.996196866, 0, -0.0871315002),
+            Purple = CFrame.new(-74.4089966, 32.0999985, -300.610992, 0, 0, -1, 0, 1, 0, 1, 0, 0),
+            Red = CFrame.new(-262.830994, 27.1000004, -86.0090027, 0.970287263, -0, -0.241955817, 0, 1, -0, 0.241955817, 0, 0.970287263),
+            Yellow = CFrame.new(-249.050003, 25.1000004, 136.837997, 0.965929627, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, 0.965929627),
+        }
+        local tpArray = {} 
+        for i,v in next, Teleports do
+            tpArray[#tpArray + 1] = i
+        end
+        
+    local tping = Window:NewTab("Teleport's")
+    local tpingSection = tping:NewSection("Teleport's")
+        
+        tpingSection:NewDropdown("Teams", "...", tpArray, function(SelectedLocation)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Teleports[SelectedLocation]
+        end)        
 
         local Miscs = Window:NewTab("Misc")     
         local MiscsSection = Miscs:NewSection("Misc")
