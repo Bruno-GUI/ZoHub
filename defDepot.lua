@@ -31,6 +31,11 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             end
         end)
 
+        MainSection:NewButton("Shinify Gamepass", "More chance on shiny when rebirth.", function()
+            game:GetService("Players").LocalPlayer:WaitForChild("Info"):WaitForChild("Gamepasses"):WaitForChild("Shiny").Value = true
+            local player = game.Players.LocalPlayer
+        end)
+
         MainSection:NewButton("AutoCrate", "Bring all crates to you.", function()
             local player = game.Players.LocalPlayer
             for i,p in pairs(game.Workspace:GetChildren()) do
@@ -59,31 +64,7 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             end)   
         end)
 
-    local Others = Window:NewTab("Others")
-    local OthersSection = Others:NewSection("Others")
-
-        OthersSection:NewButton("Infinite Yield", "FE CMDS", function()
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-        end)
-
-        OthersSection:NewButton("Esp Crates", "Put a dot in crates.", function()
-            game.Workspace.ChildAdded:connect(function(Thing)
-                if Thing.Name == 'Crate' then
-                local x = Instance.new('BillboardGui',Thing)
-                x.AlwaysOnTop = true
-                x.Size = UDim2.new(1,0,1,0)
-                local b = Instance.new('Frame',x)
-                b.Size = UDim2.new(1,0,1,0)
-                x.Adornee = Thing
-                b.BackgroundColor3 = Color3.new(1,0,0)
-                end
-            end) 
-        end)
         
-        OthersSection:NewKeybind("Hide UI", "Change Keycode if you want.", Enum.KeyCode.LeftShift, function()
-            Library:ToggleUI()
-        end)
-
             local Teleports = { 
             Blue = CFrame.new(374.989014, 14.1000004, -19.5510006, -0.998631716, 0, 0.0522932447, 0, 1, 0, -0.0522932447, 0, -0.998631716),
             Green = CFrame.new(319.837006, 29.1000004, -179.973007, -0.961250067, 0, -0.275678426, 0, 1, 0, 0.275678426, 0, -0.961250067),
@@ -110,6 +91,7 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
         local function codeInput(code)
             game:GetService("ReplicatedStorage").Events.CheckCode:InvokeServer(code)
         end
+    
         
         local miscCodes = {"*%@?", "bingchillin", "65M!", "300kFAVE", "festiveTime", "snowsnosns", "60M!", "DD2", "winteriscoming", "candy", "corn", "soonTM", "tags?!", "redYELLOWred", "spamspam", "settingsnoway", "ty4100k", "Ascensions!", "gaming", "ascend?", "killALLpls", "zoooom", "worldWIDE", "SUPERCHAT", "tahc labolg", "thatswild", "token?", "wal", "FONUFO", "O_o", "ZaP", "speeeed", "daily", "spooky", "bugcatcher", "69"}
         MiscsSection:NewButton("Redeem All Codes", "....", function()
@@ -118,6 +100,32 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             end
         end)
 
+        local Others = Window:NewTab("Others")
+        local OthersSection = Others:NewSection("Others")
+    
+            OthersSection:NewButton("Infinite Yield", "FE CMDS", function()
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+            end)
+    
+            OthersSection:NewButton("Esp Crates", "Put a dot in crates.", function()
+                game.Workspace.ChildAdded:connect(function(Thing)
+                    if Thing.Name == 'Crate' then
+                    local x = Instance.new('BillboardGui',Thing)
+                    x.AlwaysOnTop = true
+                    x.Size = UDim2.new(1,0,1,0)
+                    local b = Instance.new('Frame',x)
+                    b.Size = UDim2.new(1,0,1,0)
+                    x.Adornee = Thing
+                    b.BackgroundColor3 = Color3.new(1,0,0)
+                    end
+                end) 
+            end)
+            
+            OthersSection:NewKeybind("Hide UI", "Change Keycode if you want.", Enum.KeyCode.LeftShift, function()
+                Library:ToggleUI()
+            end)
+
+            OthersSection:NewLabel("Scripts made by: Zooh#0001")
 
 
 
