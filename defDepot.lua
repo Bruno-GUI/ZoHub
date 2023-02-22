@@ -64,6 +64,7 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             end)   
         end)
 
+
         
             local Teleports = { 
             Blue = CFrame.new(374.989014, 14.1000004, -19.5510006, -0.998631716, 0, 0.0522932447, 0, 1, 0, -0.0522932447, 0, -0.998631716),
@@ -85,6 +86,15 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Teleports[SelectedLocation]
         end)        
 
+        tpingSection:NewButton("Lobby", "Leaderboards", function()
+            Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12, 14, -1)
+        end)
+
+        tpingSection:NewButton("Hide yourself", "...", function()
+            Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-422, 20, 513)
+        end) 
+
+
         local Miscs = Window:NewTab("Misc")     
         local MiscsSection = Miscs:NewSection("Misc")
 
@@ -103,8 +113,12 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
         local Others = Window:NewTab("Others")
         local OthersSection = Others:NewSection("Others")
     
-            OthersSection:NewButton("Infinite Yield", "FE CMDS", function()
+            OthersSection:NewButton("Infinite Yield", "...", function()
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+            end)
+
+            OthersSection:NewButton("CMD-X", "...", function()
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source'))()
             end)
     
             OthersSection:NewButton("Esp Crates", "Put a dot in crates.", function()
@@ -121,6 +135,11 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
                 end) 
             end)
             
+            OthersSection:NewButton("BoomBox Pass (Client Only)", "...", function()
+                game:GetService("Players").LocalPlayer:WaitForChild("Info"):WaitForChild("Gamepasses"):WaitForChild("BoomBox").Value = true
+                local player = game.Players.LocalPlayer
+            end)
+
             OthersSection:NewKeybind("Hide UI", "Change Keycode if you want.", Enum.KeyCode.LeftShift, function()
                 Library:ToggleUI()
             end)
