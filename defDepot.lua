@@ -86,6 +86,10 @@ local Window = Library.CreateLib("DefDepot HUB", "Ocean")
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Teleports[SelectedLocation]
         end)        
 
+        tpingSection:NewButton("Trader", "...", function()
+            Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(117, -23, 229)
+        end)
+
         tpingSection:NewButton("Lobby", "Leaderboards", function()
             Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12, 14, -1)
         end)
