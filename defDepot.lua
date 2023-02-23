@@ -1,5 +1,14 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("DefDepot HUB", "Ocean")
+
+local colors = {
+    SchemeColor = Color3.fromHex("a419e9"), -- SectionColor
+    Background = Color3.fromHex("1b071e"), --1b071e ...
+    Header = Color3.fromHex("2a062d"),
+    TextColor = Color3.fromHex("FFFFFF"),
+    ElementColor = Color3.fromHex("2a062d")
+}
+
+local Window = Library.CreateLib("ZoHub", colors)
 
     local Main = Window:NewTab("Main")
     local MainSection = Main:NewSection("Main")
