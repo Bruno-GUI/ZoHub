@@ -73,8 +73,32 @@ local Window = Library.CreateLib("ZoHub", colors)
             end)   
         end)
 
+    local boss = Window:NewTab("Boss Farm")
+    local bossSection = boss:NewSection("Boss Farm")
+    local bossTime = 0 
 
-        
+        bossSection:NewSlider("AutoCancel Time", "Cancel time in seconds.", 180, 0, function(bosstime) 
+            bossTime = bosstime 
+        end)
+
+        bossSection:NewToggle("AutoCancel", "...", function(state)
+            if state then
+                _G.Active = true
+                while (_G.Active) 
+                    do task.wait(bossTime)
+                    local ohString1 = "cancel"
+                    game:GetService("ReplicatedStorage").Events.StartStage:FireServer(ohString1)
+                end
+            else
+                _G.Active = false
+                while (_G.Active) 
+                    do task.wait(1)
+                    local ohString1 = "cancel"
+                    game:GetService("ReplicatedStorage").Events.StartStage:FireServer(ohString1)
+                end
+            end
+        end)
+
             local Teleports = { 
             Blue = CFrame.new(374.989014, 14.1000004, -19.5510006, -0.998631716, 0, 0.0522932447, 0, 1, 0, -0.0522932447, 0, -0.998631716),
             Green = CFrame.new(319.837006, 29.1000004, -179.973007, -0.961250067, 0, -0.275678426, 0, 1, 0, 0.275678426, 0, -0.961250067),
@@ -88,10 +112,10 @@ local Window = Library.CreateLib("ZoHub", colors)
             tpArray[#tpArray + 1] = i
         end
         
-    local tping = Window:NewTab("Teleport's")
-    local tpingSection = tping:NewSection("Teleport's")
+    local tping = Window:NewTab("Teleports")
+    local tpingSection = tping:NewSection("Teleports")
         
-        tpingSection:NewDropdown("Teams", "...", tpArray, function(SelectedLocation)
+        tpingSection:NewDropdown("Teams ", "...", tpArray, function(SelectedLocation)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Teleports[SelectedLocation]
         end)        
 
