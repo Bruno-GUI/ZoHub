@@ -83,6 +83,12 @@ local Window = Library.CreateLib("ZoHub", colors)
 
         bossSection:NewToggle("AutoCancel", "...", function(state)
             if state then
+                
+                local ohString1 = "spawn"
+                local ohBoolean2 = false
+
+                game:GetService("ReplicatedStorage").Events.StartStage:FireServer(ohString1, ohBoolean2)
+
                 _G.Active = true
                 while (_G.Active) 
                     do task.wait(bossTime)
