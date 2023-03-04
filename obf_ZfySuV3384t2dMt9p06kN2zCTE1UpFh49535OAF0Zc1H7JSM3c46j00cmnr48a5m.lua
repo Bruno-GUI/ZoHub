@@ -40,7 +40,7 @@ local Window = Library.CreateLib("ZoHub", colors)
             end
         end)
 
-        local bases = {
+        --[[local bases = {
             Red = workspace.Bases.Red,
             Green = workspace.Bases.Green,
             Blue = workspace.Bases.Blue,
@@ -65,6 +65,140 @@ local Window = Library.CreateLib("ZoHub", colors)
         
         MainSection:NewDropdown("Auto Upgrade", "Choose your base color.", {"Red", "Green", "Blue", "Orange", "Yellow", "Purple"}, function(currentOption)
             updateTowers(currentOption)
+        end)]]--
+
+        MainSection:NewToggle("Auto Upgrade", "...", function(state)
+            if state then
+                function updateAllTowersYellow()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Yellow.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersRed()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Red.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersPurple()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Purple.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersGreen()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Green.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersBlue()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Blue.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersOrange()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Orange.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                _G.Active = true
+                while (_G.Active)
+                do task.wait(1.5)
+                    updateAllTowersRed()
+                    updateAllTowersYellow()
+                    updateAllTowersBlue()
+                    updateAllTowersOrange()
+                    updateAllTowersPurple()
+                    updateAllTowersGreen()
+                end 
+            else
+                function updateAllTowersYellow()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Yellow.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersRed()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Red.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersPurple()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Purple.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersGreen()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Green.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersBlue()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Blue.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                function updateAllTowersOrange()
+                    for i = 1, 1000 do 
+                        local tower = workspace.Bases.Orange.Ignores.PlayerMap:FindFirstChild(tostring(i))
+                        if tower then
+                            game:GetService("ReplicatedStorage").Events.MainEvent:FireServer("StarUpgrade", tower, false)
+                        end
+                    end
+                end
+                
+                _G.Active = false
+                while (_G.Active)
+                do task.wait(1.5)
+                    updateAllTowersRed()
+                    updateAllTowersYellow()
+                    updateAllTowersBlue()
+                    updateAllTowersOrange()
+                    updateAllTowersPurple()
+                    updateAllTowersGreen()
+                end 
+            end
         end)
         
         
